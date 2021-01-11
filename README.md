@@ -67,7 +67,7 @@ res$coef[1,5]
 * Consider removing relatives, since we could not account for relatedness in this analysis.
 
 
-### 1.3 submitting file format
+### 1.3 File format for submission
 
 Please submit the statistics file in `tsv` format.
 File name should be `{Cohort}_{Date}_survival.tsv`.
