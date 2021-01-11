@@ -1,6 +1,7 @@
 # COVID-19 HGI – clinical value project analysis plan 
 
-## 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
+## 1. Survival analysis for chr3 variant
+### 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
 
 ```{r}
 library(coxph)
@@ -34,11 +35,11 @@ summary(cox)$coefficients[1,5]
 * Please run the analysis if total carrier count is greater than 10 in your subgroup. Otherwise, please provide us only the counts of  death_carrier, surviver_carrier, surviver_noncarrier, death_noncarrier as described below.
 * First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
 
-## 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
+### 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
 
 
 
-## 1.3 submitting file format
+### 1.3 submitting file format
 
 example
 
