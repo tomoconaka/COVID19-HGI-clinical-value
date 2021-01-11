@@ -26,5 +26,19 @@ final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
 * Please consider removing some of the covariates espectially when the number of event (death) is small.
 * First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
 
-### submitting file format
+## 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
+
+
+
+## 1.3 submitting file format
+
+
+| study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier
+-------------------------------------------------------------------------
+| UKB |  0.2090753 | 0.1190136 | 0.07896314 | EUR  |  all_cause | 91 | 523 | 2439 | 388 |
+2  0.9862004 0.6539996 0.13156667 SAS     all_cause    6   51   60    4
+3  0.4004562 0.5081928 0.43069645 AMR     all_cause    5   16  126   18
+
+
+
 
