@@ -93,5 +93,6 @@ example
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
 
+hospitalization
 
 
