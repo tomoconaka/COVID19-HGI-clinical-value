@@ -2,7 +2,7 @@
 
 ## 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
 
-```
+```{r}
 library(coxph)
 cox <- coxph(Surv(time, death) ~ snp + sex + age_at_diagnosis*sex + age2 + study + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data = data_EUR)
 ```
