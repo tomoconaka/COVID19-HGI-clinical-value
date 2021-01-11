@@ -45,7 +45,7 @@ Here, data_EUR is a data frame which contains the following variables.
 library(cmprsk)
 #assign covid-19 related death as 2
 final <- final %>% mutate(death = ifelse(cause_of_death == 1 & death == 1, 2, death))
-covs1 <- model.matrix(~ snp + sex*age_at_diagnosis + sex + age2 + study + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data = data_EAS)[, -1]
+covs1 <- model.matrix(~ snp + sex*age_at_diagnosis + sex + age2 + study + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data = data_EUR)[, -1]
 shr_fit <- 
   crr(
     ftime = data_EUR$time,
