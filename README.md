@@ -68,7 +68,7 @@ res$coef[1,5]
 * Consider removing relatives, since we could not account for relatedness in this analysis.
 
 
-### 1.3 File format for submission
+### 1-3 File format for submission
 
 Please submit the statistics file in `tsv` format.
 File name should be `{Cohort}_{Date}_survival.tsv`.
@@ -94,6 +94,11 @@ example
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
 
-hospitalization
+We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following binary outcomes.  
+
+1. hospitalization 
+2. icu admission
+
+3. 
 
 
