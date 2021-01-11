@@ -24,6 +24,7 @@ summary(cox)$coefficients[1,3]
 summary(cox)$coefficients[1,5]
 
 ```
+Here, data_EUR is a data frame which contains the following variables.
 
 `time` Days from the date of COVID-19 diagnosis. (if missing, use the date of hospitalization)
 
