@@ -15,4 +15,10 @@ cox <- coxph(Surv(time, death) ~ snp + sex + age_at_diagnosis*sex + age2 + study
 
 `final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))`
 
-`age2` $$`age^2`$$    \\(age^2\\)
+`age2` age squared (age^2)
+
+`study` If only one study/cohort included, please ignore.
+
+`PC` genetic PCs
+
+* Please consider removing some of the covariates espectially when the number of event (death) is small.
