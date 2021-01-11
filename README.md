@@ -45,8 +45,8 @@ final <- final %>% mutate(death = ifelse(cause_of_death == 1 & death == 1, 2, de
 covs1 <- model.matrix(~ snp + sex*age_at_diagnosis + sex + age2 + study + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data = data_EAS)[, -1]
 shr_fit <- 
   crr(
-    ftime = data_EAS$time,
-    fstatus = data_EAS$death,
+    ftime = data_EUR$time,
+    fstatus = data_EUR$death,
     cov1 = covs1,
     cencode = 0, failcode = 2
   )
