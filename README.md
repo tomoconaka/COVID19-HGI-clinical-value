@@ -9,6 +9,8 @@ If you have any question, please contact `tomoko.nakanishi`at`mail.mcgill.ca`.
 ## 1. Survival analysis for chr3 variant
 ### 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
 
+Survival analysis adjusting for age, sex, age*sex, study, and genetic PCs1:10.
+
 ```{r}
 library(coxph)
 library(tidyr)
@@ -42,6 +44,7 @@ Here, data_EUR is a data frame which contains the following variables.
 
 ### 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
 
+Competitive risk model adjusting for age, sex, age*sex, study, and genetic PCs1:10
 
 ```{r}
 library(cmprsk)
@@ -95,7 +98,7 @@ example
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
 
-We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following binary outcomes.  
+We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following eight binary outcomes.  
 
 All of these event are only counted if these occured within 30 days from the date of diagnosis (if missing use date of hospitalization instead).
 
@@ -126,3 +129,21 @@ All of these event are only counted if these occured within 30 days from the dat
 7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
 8. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
 
+
+example code 
+
+```{r}
+#association analysis for i th outcome and j th snp (here chr3:45823240:T:C_C allele dosage)
+LM <- glm(outcome[i]," ~ `",snps[j],"` + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
+
+#sensitivity analysis adding highest_who_score
+LM <- glm(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
+
+## do we want to do additional analysis adjusting for smoking, BMI and complication, too? @Andrea
+
+```
+
+| study |  outcome | beta |  se  | pvalue | pop | N_case | N_control | snp | covariates_used | 
+|----|----|----|----|----|----|----|----|----|----|
+| UKB |  resp_severe | 0.2090753 | 0.1190136 | 0.07896314 | EUR | 270 | 607 | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
+| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
