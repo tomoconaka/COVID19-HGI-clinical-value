@@ -169,7 +169,7 @@ example
 | UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
 | UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | past_smoker | age,age2,sex,age*sex,PC1:10,study |
 
-* Please describe the snp as following coding `chr3:45823240:T:C_C` (build 38) and to make sure you test the association with the dosage of `C` allele.
+* Please describe the snp as following coding `chr3:45823240:T:C_C` (build 38) and make sure you test the association with the dosage of `C` allele.
 
 ## 3. Associations with lab values. (to be updated.)
 
