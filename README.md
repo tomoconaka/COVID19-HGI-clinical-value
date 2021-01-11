@@ -120,11 +120,8 @@ All of these event are only counted if these occured within 30 days from the dat
 ```
 
 * complications
-4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPER4 code of following (`E851`,`E852`).
-5. `aki` doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (). 
-6. `hepatic`
-7. `cardiac`
-8. `vte` doctor-diagnosed pulmonary embolism, deep venous thromboembolism, or ICD-10 codes (`I81`, `I82*`, `I26*`)
-
-
-
+4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPER4 code of following (`E851`,`E852`). **Please remove those with only oxygen supplement both from cases and controls if possible.**
+5. `aki` Renal complication: doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (`N17*`). 
+6. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
+7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
+8. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
