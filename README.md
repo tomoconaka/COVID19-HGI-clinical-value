@@ -24,6 +24,7 @@ final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
 `PC` genetic PCs
 
 * Please consider removing some of the covariates espectially when the number of event (death) is small.
+* Please run the analysis if total carrier count is greater than 10 in your subgroup. Otherwise, please provide us only the counts of  death_carrier, surviver_carrier, surviver_noncarrier, death_noncarrier as described below.
 * First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
 
 ## 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
@@ -32,6 +33,7 @@ final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
 
 ## 1.3 submitting file format
 
+example
 
 | study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier
 ----|----|----|----|----|----|----|----|----|----|
@@ -40,7 +42,10 @@ final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
 | UKB |  0.4004562 | 0.5081928 | 0.43069645 | AMR  |  all_cause | 5 | 16 | 126 | 18 |
 | UKB |  NA | NA | NA | AFR |  all_cause | 0 | 2 | 162 | 44 |
 | UKB |  NA | NA | NA | EAS |  all_cause | 0 | 1 | 52 | 2 |
-
-
+| UKB |  0.3258524 | 0.1297687 | 0.01200000 | EUR |  covid_related | 78 | 370 | 1932 | 309 |
+| UKB |  1.3078685 | 0.6820407 | 0.05500000 | SAS |  covid_related | 6 | 41 | 57 | 3 |
+| UKB |  NA | NA | NA | AMR |  covid_related | 1 | 5 | 36 | 0 |
+| UKB |  NA | NA | NA | AFR |  covid_related | 0 | 1 | 146 | 33 |
+| UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 |
 
 
