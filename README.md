@@ -146,7 +146,7 @@ summary(LM)$coefficient[2,2]
 summary(LM)$coefficient[2,4]
 
 #sensitivity analysis adding highest_who_score
-LM <- glm(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
+LM <- glm(paste0(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
 
 ## do we want to do additional analysis adjusting for smoking, BMI and complication, too? @Andrea @Brent
 ## can we ask each cohort to run the non-genetic risk factor association analysis, too?? @Andrea, @Brent
