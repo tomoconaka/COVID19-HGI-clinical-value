@@ -63,7 +63,12 @@ res$coef[1,5]
 
 ### 1.3 submitting file format
 
+Please submit the statistics file in `tsv` format.
+File name should be `{Cohort}_{Date}_survival.tsv`.
+
 example
+`UKB_20200110_survival.tsv`
+
 
 | study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier
 ----|----|----|----|----|----|----|----|----|----|
