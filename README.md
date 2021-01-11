@@ -84,3 +84,8 @@ example
 | UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 |
 
 
+
+## 2. Association with COVID-19 severity and complications.
+
+
+
