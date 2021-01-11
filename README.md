@@ -136,6 +136,13 @@ example code
 #association analysis for i th outcome and j th snp (here chr3:45823240:T:C_C allele dosage)
 LM <- glm(outcome[i]," ~ `",snps[j],"` + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
 
+#beta for snp
+summary(LM)$coefficient[2,1]
+#se for snp
+summary(LM)$coefficient[2,2]
+#pvalue for snp
+summary(LM)$coefficient[2,4]
+
 #sensitivity analysis adding highest_who_score
 LM <- glm(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
 
