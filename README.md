@@ -3,6 +3,9 @@
 This contains the analysis description for four sets of analyses for COVID-19 clinical value project.
 If you have any question, please contact `tomoko.nakanishi`at`mail.mcgill.ca`.
 
+1. Survival analysis for chr3 variant
+2. Associations between COVID-19 severity/complications and chr3 variant.
+
 ## 1. Survival analysis for chr3 variant
 ### 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
 
@@ -88,7 +91,7 @@ example
 
 
 
-## 2. Association with COVID-19 severity and complications.
+## 2. Associations between COVID-19 severity/complications and chr3 variant.
 
 
 
