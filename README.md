@@ -75,7 +75,7 @@ res$coef[1,5]
 * Consider removing relatives, since we could not account for relatedness in this analysis.
 
 
-### 1-3 File format for submission
+### 1-3. File format for submission
 
 Please submit the statistics file in `tsv` format.
 File name should be `{Cohort}_{Date}_survival.tsv`.
@@ -99,6 +99,8 @@ example
 
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
+
+### 2-1. Analysis details.
 
 We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following eight binary outcomes.  
 
@@ -153,7 +155,7 @@ LM <- glm(paste0(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagn
 
 ```
 
-### 2-3 File format for submission
+### 2-2. File format for submission
 
 Please submit the statistics file in `tsv` format.
 File name should be `{Cohort}_{Date}_complications.tsv`.
