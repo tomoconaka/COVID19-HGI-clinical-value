@@ -38,6 +38,27 @@ summary(cox)$coefficients[1,5]
 ### 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
 
 
+```{r}
+library(cmprsk)
+#assign covid-19 related death as 2
+final <- final %>% mutate(death = ifelse(cause_of_death == 1 & death == 1, 2, death))
+covs1 <- model.matrix(~ snp + sex*age_at_diagnosis + sex + age2 + study + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data = data_EAS)[, -1]
+shr_fit <- 
+  crr(
+    ftime = data_EAS$time,
+    fstatus = data_EAS$death,
+    cov1 = covs1,
+    cencode = 0, failcode = 2
+  )
+res <- summary.crr(shr_fit, conf.int = 0.95)
+#beta for snp
+res$coef[1,1]
+#se for snp
+res$coef[1,3]
+#pvalue for snp
+res$coef[1,5]
+```
+
 
 ### 1.3 submitting file format
 
