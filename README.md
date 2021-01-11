@@ -2,9 +2,11 @@
 
 This contains the analysis description for four sets of analyses for COVID-19 clinical value project.
 If you have any question, please contact `tomoko.nakanishi`at`mail.mcgill.ca`.
+Although this code is based on R language, we do not restrict each cohort to run the analysis on python or any other languages.
 
 1. Survival analysis for chr3 variant
 2. Associations between COVID-19 severity/complications and chr3 variant.
+3. Associations with lab values. (to be updated.)
 
 ## 1. Survival analysis for chr3 variant
 ### 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
@@ -146,11 +148,26 @@ summary(LM)$coefficient[2,4]
 #sensitivity analysis adding highest_who_score
 LM <- glm(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
 
-## do we want to do additional analysis adjusting for smoking, BMI and complication, too? @Andrea
+## do we want to do additional analysis adjusting for smoking, BMI and complication, too? @Andrea @Brent
+## can we ask each cohort to run the non-genetic risk factor association analysis, too?? @Andrea, @Brent
 
 ```
 
-| study |  outcome | beta |  se  | pvalue | pop | N_case | N_control | snp | covariates_used | 
+### 2-3 File format for submission
+
+Please submit the statistics file in `tsv` format.
+File name should be `{Cohort}_{Date}_complications.tsv`.
+
+example
+`UKB_20200110_complications.tsv`
+
+| study |  outcome | beta |  se  | pvalue | risk_factor | N_case | N_control | snp | covariates_used | 
 |----|----|----|----|----|----|----|----|----|----|
 | UKB |  resp_severe | 0.2090753 | 0.1190136 | 0.07896314 | EUR | 270 | 607 | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
 | UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
+| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | past_smoker | age,age2,sex,age*sex,PC1:10,study |
+
+
+## 3. Associations with lab values. (to be updated.)
+
+
