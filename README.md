@@ -102,7 +102,8 @@ We would test the association between chr3:45823240:T:C_C allele dosage (rs10490
 2. `icu_admit` ICU admission
 3. `high_who_score` highest WHO score >= 6 according to the score below.
 
-> -1 unknown
+```
+-1 unknown
 0 Uninfected, no viral RNA detected
 1 Asymptomatic, viral RNA detected
 2 Symtomatic, independent
@@ -113,7 +114,8 @@ We would test the association between chr3:45823240:T:C_C allele dosage (rs10490
 7 Intubation and mechanical ventilation, P/F ≥ 150 or SpO2/FiO2 ≥ 200
 8 Mechanical ventilation PF < 150 (SpO2/FiO2 < 200) or vasopressors
 9 Mechanical ventilation PF < 150 and vasopressors, dialysis or ECMO
-10 Dead"
+10 Dead
+```
 
 * complications
 4. need for mechanical ventilation
