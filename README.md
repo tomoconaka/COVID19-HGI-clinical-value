@@ -97,6 +97,8 @@ example
 
 We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following binary outcomes.  
 
+All of these event are only counted if these occured within 30 days from the date of diagnosis (if missing use date of hospitalization instead).
+
 * severity 
 1. `hospitalization` hospitalization 
 2. `icu_admit` ICU admission
@@ -118,8 +120,11 @@ We would test the association between chr3:45823240:T:C_C allele dosage (rs10490
 ```
 
 * complications
-4. need for mechanical ventilation
-5.  
-6. 
-7. 
+4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPER4 code of following (`E851`,`E852`).
+5. `aki` doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (). 
+6. `hepatic`
+7. `cardiac`
+8. `vte` doctor-diagnosed pulmonary embolism, deep venous thromboembolism, or ICD-10 codes (`I81`, `I82*`, `I26*`)
+
+
 
