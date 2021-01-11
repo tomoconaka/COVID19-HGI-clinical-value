@@ -163,7 +163,7 @@ File name should be `{Cohort}_{Date}_complications.tsv`.
 example
 `UKB_20200110_complications.tsv`
 
-| study |  outcome | beta |  se  | pvalue | risk_factor | N_case | N_control | snp | covariates_used | 
+| study |  outcome | beta |  se  | pvalue | pop | N_case | N_control | risk_factor | covariates_used | 
 |----|----|----|----|----|----|----|----|----|----|
 | UKB |  resp_severe | 0.2090753 | 0.1190136 | 0.07896314 | EUR | 270 | 607 | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
 | UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
