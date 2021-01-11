@@ -48,6 +48,8 @@ Here, data_EUR is a data frame which contains the following variables.
 
 Competitive risk model adjusting for age, sex, age*sex, study, and genetic PCs1:10
 
+covid-19 related death was defined as doctor diagnosed or death with cause of death as ICD10 codes of `U71` or `U72` .
+
 ```{r}
 library(cmprsk)
 #assign covid-19 related death as 2
