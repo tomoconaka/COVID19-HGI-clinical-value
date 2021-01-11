@@ -13,7 +13,6 @@ cox <- coxph(Surv(time, death) ~ snp + sex + age_at_diagnosis*sex + age2 + study
 
 `snp` carrier status of chr3:45823240:T:C_C allele (rs10490770)
 
+`final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))`
 
-```
-final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
-```
+`age2` $age^2$
