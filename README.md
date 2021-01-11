@@ -32,6 +32,8 @@ Here, data_EUR is a data frame which contains the following variables.
 
 `snp` carrier status of chr3:45823240:T:C_C allele (rs10490770)
 
+`age_at_diagnosis` age
+
 `age2` age squared (age^2)
 
 `study` If only one study/cohort included, please ignore.
@@ -91,14 +93,31 @@ example
 | UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 | NA |
 
 
-
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
 
 We would test the association between chr3:45823240:T:C_C allele dosage (rs10490770) and the following binary outcomes.  
 
-1. hospitalization 
-2. icu admission
+* severity 
+1. `hospitalization` hospitalization 
+2. `icu_admit` ICU admission
+3. `high_who_score` highest WHO score >= 6 according to the score below.
 
-3. 
+> -1 unknown
+0 Uninfected, no viral RNA detected
+1 Asymptomatic, viral RNA detected
+2 Symtomatic, independent
+3 Symptomatic, assistance needed
+4 Hospitalized; no oxygen therapy
+5 Hospitalised; oxygen by mask or nasal prongs
+6 Hospitalized; oxygen by NIV or high flow
+7 Intubation and mechanical ventilation, P/F ≥ 150 or SpO2/FiO2 ≥ 200
+8 Mechanical ventilation PF < 150 (SpO2/FiO2 < 200) or vasopressors
+9 Mechanical ventilation PF < 150 and vasopressors, dialysis or ECMO
+10 Dead"
 
+* complications
+4. need for mechanical ventilation
+5.  
+6. 
+7. 
 
