@@ -24,4 +24,7 @@ final <- final %>% mutate(snp = ifelse(round(`chr3:45823240:T:C_C`) >= 1, 1, 0))
 `PC` genetic PCs
 
 * Please consider removing some of the covariates espectially when the number of event (death) is small.
-* First, stratify by genetically determine ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
+* First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
+
+### submitting file format
+
