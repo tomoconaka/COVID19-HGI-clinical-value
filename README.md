@@ -31,11 +31,6 @@ summary(cox)$coefficients[1,5]
 
 `PC` genetic PCs
 
-* Please consider removing some of the covariates espectially when the number of event (death) is small.
-* Please run the analysis if total carrier count is greater than 10 in your subgroup. Otherwise, please provide us only the counts of  death_carrier, surviver_carrier, surviver_noncarrier, death_noncarrier as described below.
-* First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
-* Consider removing relatives, since we could not account for relatedness in this analysis.
-
 ### 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
 
 
@@ -59,6 +54,11 @@ res$coef[1,3]
 #pvalue for snp
 res$coef[1,5]
 ```
+
+* Please consider removing some of the covariates espectially when the number of event (death) is small.
+* Please run the analysis if total carrier count is greater than 10 in your subgroup. Otherwise, please provide us only the counts of  death_carrier, surviver_carrier, surviver_noncarrier, death_noncarrier as described below.
+* First, stratify by genetically determined ancestry (continental-wise, EUR, AMR, SAS, EAS, AFR) and perform the above analysis seperately.
+* Consider removing relatives, since we could not account for relatedness in this analysis.
 
 
 ### 1.3 submitting file format
