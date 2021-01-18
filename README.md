@@ -9,7 +9,7 @@ Although this code is based on R language, we do not restrict each cohort to run
 3. Associations with lab values. (to be updated.)
 
 ## 1. Survival analysis for chr3 variant
-### 1-1.	Cox proportional hazards model for all-cause mortality within 30 days from the date of diagnosis.
+### 1-1.	Cox proportional hazards model for all-cause mortality from the date of diagnosis.
 
 Survival analysis adjusting for age, sex, age*sex, study, and genetic PCs1:10.
 
@@ -32,7 +32,7 @@ Here, data_EUR is a data frame which contains the following variables.
 
 `time` Days from the date of COVID-19 diagnosis. (if missing, use the date of hospitalization)
 
-`death` all–cause death within 30 days from the starting date (COVID-19 diagnosis or the date of hospitalization)
+`death` all–cause death
 
 `snp` carrier status of chr3:45823240:T:C_C allele (rs10490770)
 
@@ -44,7 +44,7 @@ Here, data_EUR is a data frame which contains the following variables.
 
 `PC` genetic PCs
 
-### 1-2. Competitive risk model for covid-19 related mortality within 30 days from the date of diagnosis.
+### 1-2. Competitive risk model for covid-19 related mortality.
 
 Competitive risk model adjusting for age, sex, age*sex, study, and genetic PCs1:10
 
@@ -134,6 +134,31 @@ All of these event are only counted if these occured within 30 days from the dat
 6. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
 7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
 8. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
+9. `hosp_thrombp` doctor-diagnosed venous pulmonary embolism or ICD-10 codes of PE (`I26*`)
+
+As a comparison, it would be great to have association analyses with `AgeGroup`, `Sex`, `smoking status`, `BMI` if possible.
+Please use following groupings.
+
+```{r}
+final <- final %>% mutate(Agegroup = case_when(age_at_diagnosis < 40 ~ "Age<40",
+                                               age_at_diagnosis >= 40 & age_at_diagnosis < 50 ~ "Age40-50",
+                                               age_at_diagnosis >= 50 & age_at_diagnosis < 60 ~ "0Age50-60",
+                                               age_at_diagnosis >= 60 & age_at_diagnosis < 70 ~ "Age60-70",
+                                               age_at_diagnosis >= 70 & age_at_diagnosis < 80 ~ "Age70-80",
+                                               age_at_diagnosis >= 80 ~ "Age>80"),
+                          Male = ifelse(sex == 0, 1, 0))
+
+final <- final %>% mutate(smoke = case_when(smoking == 0 ~ "current",
+                                            smoking == 1 ~ "ex",
+                                            smoking == 2 ~ "0none",
+                                            TRUE ~ "NA"),
+                          BMI = case_when(weight/((height/100)^2) >= 40 ~ "class4",
+                                          weight/((height/100)^2) < 40 & weight/((height/100)^2) >=35 ~ "class3",
+                                          weight/((height/100)^2) < 35 & weight/((height/100)^2) >=30 ~ "class2",
+                                          weight/((height/100)^2) < 30 ~ "0none",
+                                          TRUE ~ "NA"))
+```
+
 
 
 example code 
@@ -173,6 +198,5 @@ example
 
 * Please describe the snp as following coding `chr3:45823240:T:C_C` (build 38) and make sure you test the association with the dosage of `C` allele.
 
-## 3. Associations with lab values. (to be updated.)
 
 
