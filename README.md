@@ -6,7 +6,8 @@ Although this code is based on R language, we do not restrict each cohort to run
 
 1. Survival analysis for chr3 variant
 2. Associations between COVID-19 severity/complications and chr3 variant.
-3. Associations with lab values. (to be updated.)
+3. Please do the following analysis both using **ALL COVID+ individuals and ONLY hospitalized individuals.**
+
 
 ## 1. Survival analysis for chr3 variant
 ### 1-1.	Cox proportional hazards model for all-cause mortality from the date of diagnosis.
@@ -86,18 +87,18 @@ example
 `UKB_20200110_survival.tsv`
 
 
-| study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier | covariates_used
-----|----|----|----|----|----|----|----|----|----|----|
-| UKB |  0.2090753 | 0.1190136 | 0.07896314 | EUR  |  all_cause | 91 | 523 | 2439 | 388 | age,age2,sex,age*sex,PC1:10,study |
-| UKB |  0.9862004 | 0.6539996 | 0.13156667 | SAS  |  all_cause | 6 | 51 | 60 | 4 | age,sex |
-| UKB |  0.4004562 | 0.5081928 | 0.43069645 | AMR  |  all_cause | 5 | 16 | 126 | 18 | age,sex |
-| UKB |  NA | NA | NA | AFR |  all_cause | 0 | 2 | 162 | 44 | NA |
-| UKB |  NA | NA | NA | EAS |  all_cause | 0 | 1 | 52 | 2 | NA |
-| UKB |  0.3258524 | 0.1297687 | 0.01200000 | EUR |  covid_related | 78 | 370 | 1932 | 309 | age,age2,sex,age*sex,PC1:10,study |
-| UKB |  1.3078685 | 0.6820407 | 0.05500000 | SAS |  covid_related | 6 | 41 | 57 | 3 | age,sex |
-| UKB |  NA | NA | NA | AMR |  covid_related | 1 | 5 | 36 | 0 | age,sex |
-| UKB |  NA | NA | NA | AFR |  covid_related | 0 | 1 | 146 | 33 | age,sex |
-| UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 | NA |
+| study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier | covariates_used | hospitalized_only
+----|----|----|----|----|----|----|----|----|----|----|----|
+| UKB |  0.2090753 | 0.1190136 | 0.07896314 | EUR  |  all_cause | 91 | 523 | 2439 | 388 | age,age2,sex,age*sex,PC1:10,study | no |
+| UKB |  0.9862004 | 0.6539996 | 0.13156667 | SAS  |  all_cause | 6 | 51 | 60 | 4 | age,sex | no |
+| UKB |  0.4004562 | 0.5081928 | 0.43069645 | AMR  |  all_cause | 5 | 16 | 126 | 18 | age,sex | yes | 
+| UKB |  NA | NA | NA | AFR |  all_cause | 0 | 2 | 162 | 44 | NA | yes |
+| UKB |  NA | NA | NA | EAS |  all_cause | 0 | 1 | 52 | 2 | NA | no |
+| UKB |  0.3258524 | 0.1297687 | 0.01200000 | EUR |  covid_related | 78 | 370 | 1932 | 309 | age,age2,sex,age*sex,PC1:10,study | no |
+| UKB |  1.3078685 | 0.6820407 | 0.05500000 | SAS |  covid_related | 6 | 41 | 57 | 3 | age,sex | no |
+| UKB |  NA | NA | NA | AMR |  covid_related | 1 | 5 | 36 | 0 | age,sex | no | 
+| UKB |  NA | NA | NA | AFR |  covid_related | 0 | 1 | 146 | 33 | age,sex | yes | 
+| UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 | NA | no |
 
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
@@ -110,7 +111,7 @@ All of these event are only counted if these occured within 30 days from the dat
 
 * severity 
 1. `hospitalization` hospitalization 
-2. `icu_admit` ICU admission
+2. `icu_admit` ICU admission. **For ALL COVID+ analysis, code those with non-hospitalized as 0, those with hospitalization but without ICU admission as missing.
 3. `high_who_score` highest WHO score >= 6 according to the score below.
 
 ```
@@ -129,7 +130,7 @@ All of these event are only counted if these occured within 30 days from the dat
 ```
 
 * complications
-4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPCS4 code of following (`E851`,`E852`). **Please remove those with only oxygen supplement both from cases and controls if possible.**
+4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPCS4 code of following (`E851`,`E852`). **For ALL COVID+ analysis, code those with no-oxygen as 0, those with only oxygen supplement as missing.**
 5. `aki` Renal complication: doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (`N17*`). 
 6. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
 7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
@@ -190,11 +191,11 @@ File name should be `{Cohort}_{Date}_complications.tsv`.
 example
 `UKB_20200110_complications.tsv`
 
-| study |  outcome | beta |  se  | pvalue | pop | N_case | N_control | risk_factor | covariates_used | 
-|----|----|----|----|----|----|----|----|----|----|
-| UKB |  resp_severe | 0.2090753 | 0.1190136 | 0.07896314 | EUR | 270 | 607 | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
-| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study |
-| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | past_smoker | age,age2,sex,age*sex,PC1:10,study |
+| study |  outcome | beta |  se  | pvalue | pop | N_case | N_control | risk_factor | covariates_used | hospitalized_only
+|----|----|----|----|----|----|----|----|----|----|----|
+| UKB |  resp_severe | 0.2090753 | 0.1190136 | 0.07896314 | EUR | 270 | 607 | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study | yes |
+| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | chr3:45823240:T:C_C | age,age2,sex,age*sex,PC1:10,study | no |
+| UKB |  resp_severe | 0.49685214 | 0.2533789 | 0.0498899920 | EUR | 578 | 593  | past_smoker | age,age2,sex,age*sex,PC1:10,study | yes |
 
 * Please describe the snp as following coding `chr3:45823240:T:C_C` (build 38) and make sure you test the association with the dosage of `C` allele.
 
