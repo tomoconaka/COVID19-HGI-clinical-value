@@ -135,7 +135,6 @@ All of these event are only counted if these occured within 30 days from the dat
 6. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
 7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
 8. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
-9. `hosp_thrombp` doctor-diagnosed venous pulmonary embolism or ICD-10 codes of PE (`I26*`)
 
 As a comparison, it would be great to have association analyses with `AgeGroup`, `Sex`, `smoking status`, `BMI` if possible.
 Please use following groupings.
