@@ -111,9 +111,8 @@ We would test the association between chr3:45823240:T:C_C allele dosage (rs10490
 All of these event are only counted if these occured within 30 days from the date of diagnosis (if missing use date of hospitalization instead).
 
 * severity 
-1. `hospitalization` hospitalization 
-2. `icu_admit` ICU admission. **For ALL COVID+ analysis, code those with non-hospitalized as 0, those with hospitalization but without ICU admission as missing.
-3. `high_who_score` highest WHO score >= 6 according to the score below.
+1. `icu_admit` ICU admission. **For ALL COVID+ analysis, code those with non-hospitalized as 0, those with hospitalization but without ICU admission as missing.
+2. `high_who_score` highest WHO score >= 6 according to the score below.
 
 ```
 -1 unknown
@@ -131,11 +130,11 @@ All of these event are only counted if these occured within 30 days from the dat
 ```
 
 * complications
-4. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPCS4 code of following (`E851`,`E852`). **For ALL COVID+ analysis, code those with no-oxygen as 0, those with only oxygen supplement as missing.**
-5. `aki` Renal complication: doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (`N17*`). 
-6. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
-7. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
-8. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
+3. `resp_severe` Need for mechanical ventilation (including oxygen by NIV or high flow) or ICD-10 codes of following (`J80`,`J9600`,`J9609`,`Z991`) or OPCS4 code of following (`E851`,`E852`). **For ALL COVID+ analysis, code those with no-oxygen as 0, those with only oxygen supplement as missing.**
+4. `aki` Renal complication: doctor-diagnosed acute renal injury (AKI), highest creatinine > 1.5xULN, or ICD-10 codes of AKI (`N17*`). 
+5. `hepatic` Hepatic complication: doctor-diagnosed hepatic complications, highest ALT > 3x upper limit of normal (ULN), or ICD-10 codes of acute hepatic failure (`K720`)
+6. `cardiovascular` Cardiovascular complication: doctor-diagnosed acute myocardial infarction (AMI) or stroke, highest troponin T or troponin I > ULN, or ICD-10 codes of AMI (`I21*`) or stroke (`I61`,`I62`, `I63`, `I64`,`I65`,`I66*`)
+7. `vte` doctor-diagnosed venous thromboembolism (VTE: pulmonary embolism or deep venous thromboembolism), or ICD-10 codes of VTE (`I81`, `I82*`, `I26*`)
 
 As a comparison, it would be great to have association analyses with `AgeGroup`, `Sex`, `smoking status`, `BMI` if possible.
 Please use following groupings.
@@ -175,11 +174,7 @@ summary(LM)$coefficient[2,2]
 #pvalue for snp
 summary(LM)$coefficient[2,4]
 
-#sensitivity analysis adding highest_who_score
-LM <- glm(paste0(outcome[i]," ~ `",snps[j],"` + highest_who_score + age_at_diagnosis + age2 + sex + age_at_diagnosis*sex + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10")), data=data_EUR, family ="binomial")
 
-## do we want to do additional analysis adjusting for smoking, BMI and complication, too? @Andrea @Brent
-## can we ask each cohort to run the non-genetic risk factor association analysis, too?? @Andrea, @Brent
 
 ```
 
