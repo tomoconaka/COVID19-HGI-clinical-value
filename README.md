@@ -3,10 +3,11 @@
 This contains the analysis description for four sets of analyses for COVID-19 clinical value project.
 If you have any question, please contact `tomoko.nakanishi`at`mail.mcgill.ca`.
 Although this code is based on R language, we do not restrict each cohort to run the analysis on python or any other languages.
+Please do the following analysis both using **ALL COVID+ individuals and ONLY hospitalized individuals.**
 
 1. Survival analysis for chr3 variant
 2. Associations between COVID-19 severity/complications and chr3 variant.
-3. Please do the following analysis both using **ALL COVID+ individuals and ONLY hospitalized individuals.**
+
 
 
 ## 1. Survival analysis for chr3 variant
