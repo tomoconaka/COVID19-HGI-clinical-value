@@ -88,18 +88,18 @@ example
 `UKB_20200110_survival.tsv`
 
 
-| study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier | covariates_used | hospitalized_only
+| study |  beta |  se  | pvalue | pop | type | death_carrier | surviver_carrier | surviver_noncarrier | death_noncarrier | covariates_used | agegroup |
 ----|----|----|----|----|----|----|----|----|----|----|----|
-| UKB |  0.2090753 | 0.1190136 | 0.07896314 | EUR  |  all_cause | 91 | 523 | 2439 | 388 | age,age2,sex,age*sex,PC1:10,study | no |
-| UKB |  0.9862004 | 0.6539996 | 0.13156667 | SAS  |  all_cause | 6 | 51 | 60 | 4 | age,sex | no |
-| UKB |  0.4004562 | 0.5081928 | 0.43069645 | AMR  |  all_cause | 5 | 16 | 126 | 18 | age,sex | yes | 
-| UKB |  NA | NA | NA | AFR |  all_cause | 0 | 2 | 162 | 44 | NA | yes |
-| UKB |  NA | NA | NA | EAS |  all_cause | 0 | 1 | 52 | 2 | NA | no |
-| UKB |  0.3258524 | 0.1297687 | 0.01200000 | EUR |  covid_related | 78 | 370 | 1932 | 309 | age,age2,sex,age*sex,PC1:10,study | no |
-| UKB |  1.3078685 | 0.6820407 | 0.05500000 | SAS |  covid_related | 6 | 41 | 57 | 3 | age,sex | no |
-| UKB |  NA | NA | NA | AMR |  covid_related | 1 | 5 | 36 | 0 | age,sex | no | 
-| UKB |  NA | NA | NA | AFR |  covid_related | 0 | 1 | 146 | 33 | age,sex | yes | 
-| UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 | NA | no |
+| UKB |  0.2090753 | 0.1190136 | 0.07896314 | EUR  |  all_cause | 91 | 523 | 2439 | 388 | age,age2,sex,age*sex,PC1:10,study | ALL |
+| UKB |  0.9862004 | 0.6539996 | 0.13156667 | SAS  |  all_cause | 6 | 51 | 60 | 4 | age,sex | age≤60 |
+| UKB |  0.4004562 | 0.5081928 | 0.43069645 | AMR  |  all_cause | 5 | 16 | 126 | 18 | age,sex | age>60 | 
+| UKB |  NA | NA | NA | AFR |  all_cause | 0 | 2 | 162 | 44 | NA | ALL |
+| UKB |  NA | NA | NA | EAS |  all_cause | 0 | 1 | 52 | 2 | NA | age≤60 |
+| UKB |  0.3258524 | 0.1297687 | 0.01200000 | EUR |  covid_related | 78 | 370 | 1932 | 309 | age,age2,sex,age*sex,PC1:10,study | age>60 |
+| UKB |  1.3078685 | 0.6820407 | 0.05500000 | SAS |  covid_related | 6 | 41 | 57 | 3 | age,sex | ALL |
+| UKB |  NA | NA | NA | AMR |  covid_related | 1 | 5 | 36 | 0 | age,sex | age≤60 | 
+| UKB |  NA | NA | NA | AFR |  covid_related | 0 | 1 | 146 | 33 | age,sex | age>60 | 
+| UKB |  NA | NA | NA | EAS |  covid_related | 0 | 1 | 45 | 0 | NA | ALL |
 
 
 ## 2. Associations between COVID-19 severity/complications and chr3 variant.
